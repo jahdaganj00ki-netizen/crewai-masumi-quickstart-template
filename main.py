@@ -335,18 +335,21 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1 and sys.argv[1] == "api":
         # Run API mode
-        port = int(os.environ.get("API_PORT", 8000))
-        # Set host from environment variable, default to localhost for security.
-        # Use host=0.0.0.0 to allow external connections (e.g., in Docker or production).
-        host = os.environ.get("API_HOST", "127.0.0.1")
+        port = int(os.environ.get("API_PORT", 8080))
+        # Set host from environment variable, default to 0.0.0.0 for cloud/Docker deployments.
+        # This allows external connections. Use API_HOST=127.0.0.1 for localhost-only access.
+        host = os.environ.get("API_HOST", "0.0.0.0")
+        
+        # Display localhost for clarity when binding to all interfaces
+        display_host = "127.0.0.1" if host == "0.0.0.0" else host
 
         print("\n" + "=" * 70)
         print("🚀 Starting FastAPI server with Masumi integration...")
         print("=" * 70)
-        print(f"API Documentation:        http://{host}:{port}/docs")
-        print(f"Availability Check:       http://{host}:{port}/availability")
-        print(f"Status Check:             http://{host}:{port}/status")
-        print(f"Input Schema:             http://{host}:{port}/input_schema\n")
+        print(f"API Documentation:        http://{display_host}:{port}/docs")
+        print(f"Availability Check:       http://{display_host}:{port}/availability")
+        print(f"Status Check:             http://{display_host}:{port}/status")
+        print(f"Input Schema:             http://{display_host}:{port}/input_schema\n")
         print("=" * 70 + "\n")
 
         uvicorn.run(app, host=host, port=port, log_level="info")
