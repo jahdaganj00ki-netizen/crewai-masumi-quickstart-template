@@ -116,13 +116,13 @@ async def start_job(data: StartJobRequest):
         payment_request = await payment.create_payment_request()
         blockchain_identifier = payment_request["data"]["blockchainIdentifier"]
         payment.payment_ids.add(blockchain_identifier)
-        logger.info(f"Created payment request with blockchain identifier: {blockchain_identifier}")
+        logger.info(f"Created payment request with ID: {blockchain_identifier}")
 
         # Store job info (Awaiting payment)
         jobs[job_id] = {
             "status": "awaiting_payment",
             "payment_status": "pending",
-            "blockchain_identifier": blockchain_identifier,
+            "payment_id": blockchain_identifier,
             "input_data": data.input_data,
             "result": None,
             "identifier_from_purchaser": data.identifier_from_purchaser
@@ -166,8 +166,9 @@ async def start_job(data: StartJobRequest):
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 2) Process Payment and Execute AI Task
+# payment_id is the blockchain identifier of the payment
 # ─────────────────────────────────────────────────────────────────────────────
-async def handle_payment_status(job_id: str, payment_id: str) -> None:
+async def handle_payment_status(job_id: str, payment_id: str) -> None: 
     """ Executes CrewAI task after payment confirmation """
     try:
         logger.info(f"Payment {payment_id} completed for job {job_id}, executing task...")
