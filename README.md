@@ -62,8 +62,6 @@ PAYMENT_API_KEY=your_payment_key
 
 # Agent Configuration
 AGENT_IDENTIFIER=your_agent_identifier_from_registration
-PAYMENT_AMOUNT=10000000
-PAYMENT_UNIT=lovelace
 SELLER_VKEY=your_selling_wallet_vkey
 
 # OpenAI API

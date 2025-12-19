@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from masumi.config import Config
-from masumi.payment import Payment, Amount
+from masumi.payment import Payment
 from crew_definition import ResearchCrew
 from logging_config import setup_logging
 
@@ -95,17 +95,9 @@ async def start_job(data: StartJobRequest):
         logger.info(f"Received job request with input: '{truncated_input}'")
         logger.info(f"Starting job {job_id} with agent {agent_identifier}")
 
-        # Define payment amounts
-        payment_amount = os.getenv("PAYMENT_AMOUNT", "10000000")  # Default 10 ADA
-        payment_unit = os.getenv("PAYMENT_UNIT", "lovelace") # Default lovelace
-
-        amounts = [Amount(amount=payment_amount, unit=payment_unit)]
-        logger.info(f"Using payment amount: {payment_amount} {payment_unit}")
-        
         # Create a payment request using Masumi
         payment = Payment(
             agent_identifier=agent_identifier,
-            #amounts=amounts,
             config=config,
             identifier_from_purchaser=data.identifier_from_purchaser,
             input_data=data.input_data,
@@ -147,7 +139,6 @@ async def start_job(data: StartJobRequest):
             "agentIdentifier": agent_identifier,
             "sellerVKey": os.getenv("SELLER_VKEY"),
             "identifierFromPurchaser": data.identifier_from_purchaser,
-            "amounts": amounts,
             "input_hash": payment.input_hash,
             "payByTime": payment_request["data"]["payByTime"],
         }
